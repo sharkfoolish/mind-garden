@@ -1,0 +1,119 @@
+/* MindGarden 心靈花園 — Colors & Type */
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@400;600;700&display=swap');
+
+:root {
+  /* ===== Brand Greens ===== */
+  --mg-green-50:  #f1f7f0;
+  --mg-green-100: #dcebd9;
+  --mg-green-200: #b9d6b4;
+  --mg-green-300: #8dbb87;
+  --mg-green-400: #5e9e5b;
+  --mg-green-500: #3f8240;   /* primary */
+  --mg-green-600: #2f6832;
+  --mg-green-700: #25522a;
+  --mg-green-800: #1c3f22;
+  --mg-green-900: #142e1a;
+
+  /* ===== Healing Pink (accent) ===== */
+  --mg-pink-100: #fce7ef;
+  --mg-pink-300: #f4a4be;
+  --mg-pink-500: #e16e94;
+  --mg-pink-700: #b4456c;
+
+  /* ===== Earth / Cream ===== */
+  --mg-cream-50:  #fbf8f1;
+  --mg-cream-100: #f5efe1;
+  --mg-cream-200: #ecdfc5;
+  --mg-clay-400:  #c9a273;
+  --mg-soil-700:  #6b4a2b;
+
+  /* ===== Neutrals ===== */
+  --mg-ink-900: #1a2418;
+  --mg-ink-700: #3d4a3a;
+  --mg-ink-500: #6a7766;
+  --mg-ink-300: #b1bbac;
+  --mg-ink-100: #e6ebe2;
+
+  /* ===== Semantic ===== */
+  --mg-bg:           var(--mg-cream-50);
+  --mg-bg-soft:      var(--mg-cream-100);
+  --mg-bg-emerald:   var(--mg-green-50);
+  --mg-fg-1:         var(--mg-ink-900);
+  --mg-fg-2:         var(--mg-ink-700);
+  --mg-fg-3:         var(--mg-ink-500);
+  --mg-primary:      var(--mg-green-500);
+  --mg-primary-hover:var(--mg-green-600);
+  --mg-accent:       var(--mg-pink-500);
+  --mg-warn:         #c47a1d;
+  --mg-danger:       #b8443c;
+  --mg-border:       var(--mg-ink-100);
+
+  /* ===== Type families ===== */
+  --mg-font-display: "Noto Serif TC", "Songti TC", serif;
+  --mg-font-body:    "Noto Sans TC", "PingFang TC", system-ui, sans-serif;
+  --mg-font-num:     "Nunito", "Noto Sans TC", sans-serif;
+
+  /* ===== Type scale ===== */
+  --mg-fs-display: 56px;
+  --mg-fs-h1:      40px;
+  --mg-fs-h2:      32px;
+  --mg-fs-h3:      24px;
+  --mg-fs-h4:      20px;
+  --mg-fs-body:    16px;
+  --mg-fs-sm:      14px;
+  --mg-fs-xs:      12px;
+
+  --mg-lh-tight: 1.2;
+  --mg-lh-base:  1.6;
+  --mg-lh-loose: 1.8;
+
+  /* ===== Spacing ===== */
+  --mg-sp-1: 4px;
+  --mg-sp-2: 8px;
+  --mg-sp-3: 12px;
+  --mg-sp-4: 16px;
+  --mg-sp-5: 24px;
+  --mg-sp-6: 32px;
+  --mg-sp-7: 48px;
+  --mg-sp-8: 64px;
+  --mg-sp-9: 96px;
+
+  /* ===== Radius ===== */
+  --mg-r-sm: 8px;
+  --mg-r-md: 12px;
+  --mg-r-lg: 16px;
+  --mg-r-xl: 24px;
+  --mg-r-pill: 9999px;
+
+  /* ===== Shadows ===== */
+  --mg-shadow-sm: 0 2px 6px rgba(47, 104, 50, 0.08);
+  --mg-shadow-md: 0 8px 24px rgba(47, 104, 50, 0.12);
+  --mg-shadow-lg: 0 18px 48px rgba(47, 104, 50, 0.16);
+
+  /* ===== Motion ===== */
+  --mg-ease: cubic-bezier(.2,.8,.2,1);
+  --mg-dur-1: 160ms;
+  --mg-dur-2: 240ms;
+  --mg-dur-3: 360ms;
+}
+
+/* ===== Semantic element styles ===== */
+body {
+  background: var(--mg-bg);
+  color: var(--mg-fg-1);
+  font-family: var(--mg-font-body);
+  font-size: var(--mg-fs-body);
+  line-height: var(--mg-lh-base);
+}
+
+.mg-display { font-family: var(--mg-font-display); font-weight: 700; font-size: var(--mg-fs-display); line-height: var(--mg-lh-tight); letter-spacing: -.01em; }
+.mg-h1 { font-family: var(--mg-font-display); font-weight: 700; font-size: var(--mg-fs-h1); line-height: var(--mg-lh-tight); }
+.mg-h2 { font-family: var(--mg-font-display); font-weight: 700; font-size: var(--mg-fs-h2); line-height: var(--mg-lh-tight); }
+.mg-h3 { font-family: var(--mg-font-display); font-weight: 600; font-size: var(--mg-fs-h3); }
+.mg-h4 { font-family: var(--mg-font-body);    font-weight: 700; font-size: var(--mg-fs-h4); }
+.mg-body { font-family: var(--mg-font-body); font-size: var(--mg-fs-body); color: var(--mg-fg-2); line-height: var(--mg-lh-base); }
+.mg-sm { font-size: var(--mg-fs-sm); color: var(--mg-fg-3); }
+.mg-num { font-family: var(--mg-font-num); font-weight: 800; font-variant-numeric: tabular-nums; }
+
+.mg-eyebrow { font-family: var(--mg-font-body); font-size: var(--mg-fs-sm); font-weight: 500; color: var(--mg-primary); letter-spacing: .12em; }

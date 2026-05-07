@@ -1,0 +1,674 @@
+<!doctype html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>MindGarden 心靈花園</title>
+<link rel="stylesheet" href="colors_and_type.css" />
+<link rel="stylesheet" href="site.css" />
+<template id="__bundler_thumbnail" data-bg-color="#fbf8f1">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800">
+  <rect width="1200" height="800" fill="#fbf8f1"/>
+  <circle cx="600" cy="380" r="170" fill="#dcebd9"/>
+  <circle cx="600" cy="380" r="110" fill="#3f8240"/>
+  <text x="600" y="420" text-anchor="middle" font-size="120" font-family="serif" fill="#fff">🌿</text>
+  <text x="600" y="600" text-anchor="middle" font-size="44" font-family="serif" font-weight="700" fill="#2f6832">MindGarden 心靈花園</text>
+</svg>
+</template>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="brand" data-route="home">
+      <span class="brand-mark">🌿</span>
+      <span>MindGarden 心靈花園</span>
+    </a>
+    <div class="nav-links">
+      <button class="nav-link" data-route="home">首頁</button>
+      <button class="nav-link" data-route="courses">園藝治療課程</button>
+      <button class="nav-link" data-route="counseling">線上晤談</button>
+      <button class="nav-link" data-route="tarot">塔羅占卜</button>
+      <button class="nav-link" data-route="shop">療癒商城</button>
+      <button class="cart-btn" id="cartBtn" aria-label="購物車">🛒<span class="cart-count" id="cartCount" data-count="0">0</span></button>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ HOME ============ -->
+<section class="page" data-page="home" data-screen-label="01 Home">
+  <div class="hero">
+    <div class="hero-grid">
+      <div>
+        <span class="hero-eyebrow">台灣首選心靈療癒平台</span>
+        <h1>植物的力量<br /><span class="accent">療癒你的心</span></h1>
+        <p>MindGarden 心靈花園結合園藝治療、心理諮商與塔羅占卜，讓植物的生命力與心理探索陪伴您走過每一個情緒低谷，在綠意中找回屬於自己的平靜與力量。</p>
+        <div class="hero-cta">
+          <button class="btn-primary" data-route="courses">探索課程 →</button>
+          <button class="btn-secondary" data-route="counseling">預約晤談</button>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat"><div class="num">3,000+</div><div class="lbl">服務人次</div></div>
+          <div class="hero-stat"><div class="num">50+</div><div class="lbl">課程場次</div></div>
+          <div class="hero-stat"><div class="num">4.9</div><div class="lbl">平均評分</div></div>
+          <div class="hero-stat"><div class="num">100%</div><div class="lbl">持照諮商師</div></div>
+        </div>
+      </div>
+      <div class="hero-art"><div class="hero-emoji-stack">🌿</div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-head">
+      <div class="eyebrow">我們的服務</div>
+      <h2>四大療癒服務 全方位守護您的身心</h2>
+      <p>從課程學習到專業諮商，從線上服務到實體商品，MindGarden 陪伴您每一個需要療癒的時刻。</p>
+    </div>
+    <div class="service-grid stagger">
+      <a class="service-card" data-route="courses"><div class="service-thumb">🪴<span class="service-tag">5 種課程</span></div><h3>園藝治療課程</h3><p>透過種植、花藝與自然接觸，以植物為媒介療癒身心，提供五大主題課程。</p><span class="service-link">了解更多 →</span></a>
+      <a class="service-card" data-route="counseling"><div class="service-thumb">💬<span class="service-tag">電訪 &amp; 文字</span></div><h3>心理諮商師線上晤談</h3><p>電話晤談每半小時 $100，文字對話每半小時 $80。持照諮商師陪伴。</p><span class="service-link">了解更多 →</span></a>
+      <a class="service-card" data-route="tarot"><div class="service-thumb">🔮<span class="service-tag">真人 + AI</span></div><h3>塔羅牌占卜</h3><p>真人視訊塔羅每次 $300，另提供 AI 即時牌陣解讀體驗。</p><span class="service-link">了解更多 →</span></a>
+      <a class="service-card" data-route="shop"><div class="service-thumb">🌸<span class="service-tag">5 大品類</span></div><h3>療癒商城</h3><p>精選植栽、花藝、文具、香氛、園藝工具，把療癒帶回家。</p><span class="service-link">了解更多 →</span></a>
+    </div>
+  </div>
+
+  <div class="cta-banner">
+    <h2>準備好開始你的療癒旅程了嗎？</h2>
+    <p>無論你正在面對壓力、情感困擾或只是想讓生活更美好，MindGarden 都在這裡，用植物的力量與心理探索陪伴你。</p>
+    <div class="cta-row">
+      <button class="btn-primary" data-route="courses">探索課程</button>
+      <button class="btn-secondary" data-route="counseling">預約晤談</button>
+      <button class="btn-secondary" data-route="tarot">塔羅占卜</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COURSES ============ -->
+<section class="page" data-page="courses" data-screen-label="02 Courses">
+  <div class="page-title">
+    <div class="eyebrow">園藝治療課程</div>
+    <h1>植物如何療癒人心</h1>
+    <p>園藝治療（Horticultural Therapy）是國際間被廣泛認可的輔助療法，透過與植物互動的歷程，協助人們改善身心健康、社交互動與認知功能。MindGarden 由具備園藝治療師認證的講師親自帶領，課程以「過程比結果更重要」為核心，讓植物自然地、不著痕跡地進入你的生活。</p>
+  </div>
+
+  <div class="intro-points stagger">
+    <div class="intro-point"><div class="ico">🌱</div><h4>降低壓力荷爾蒙</h4><p>研究顯示，每週 30 分鐘的園藝活動可顯著降低皮質醇水平，改善焦慮與低落情緒。</p></div>
+    <div class="intro-point"><div class="ico">🧘</div><h4>專注當下的正念</h4><p>植物無法被催促。在照顧它的過程中，你會自然地練習耐心、觀察與接納。</p></div>
+    <div class="intro-point"><div class="ico">💚</div><h4>建立支持感連結</h4><p>透過植物的成長與凋零，重新理解失去與重生，並在團體中找到溫暖共鳴。</p></div>
+  </div>
+
+  <div class="courses-toolbar">
+    <div class="courses-count" id="course-count">共 5 堂課程</div>
+    <div class="sort-control">
+      <label for="sortBy">排序</label>
+      <select class="sort-select" id="sortBy">
+        <option value="price-asc">價錢：低 → 高</option>
+        <option value="price-desc">價錢：高 → 低</option>
+        <option value="default">預設順序</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="course-grid stagger" id="courseGrid"></div>
+</section>
+
+<!-- ============ COUNSELING ============ -->
+<section class="page" data-page="counseling" data-screen-label="03 Counseling">
+  <div class="page-title">
+    <div class="eyebrow">線上晤談服務</div>
+    <h1>選一位陪你說說心裡話的諮商師</h1>
+    <p>所有諮商心理師均持有合法執照。電話晤談 $100/30 分鐘（含視訊功能），文字對話 $80/30 分鐘。</p>
+  </div>
+  <div class="people-grid stagger" id="counselorGrid"></div>
+  <div class="book-bar" id="counselorBookBar" hidden>
+    <div class="who"><div class="av" id="cBookAv">👤</div><div class="info"><b id="cBookName">—</b><span id="cBookTitle">請選擇一位諮商師</span></div></div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap"><button class="btn-secondary" id="cTryVideo">🎥 視訊試演</button><button class="btn-primary" id="cBookBtn">📅 立即預約</button></div>
+  </div>
+  <div class="video-panel">
+    <div class="video-frame idle" id="counselFrame">
+      <div class="video-idle-content">
+        <div class="ring">📹</div>
+        <h3>視訊諮商室</h3>
+        <p>選擇上方諮商師後可開始視訊試演</p>
+        <button class="start-btn" data-target="counselFrame" disabled>🎥 開始視訊</button>
+      </div>
+    </div>
+  </div>
+  <div class="disclaimer">⚠️ 本平台不提供醫療服務及診斷。諮商師僅進行心理衛教、自我探索、情緒處理等議題討論。緊急心理危機請撥打安心專線 <strong>1925</strong>。</div>
+</section>
+
+<!-- ============ TAROT ============ -->
+<section class="page" data-page="tarot" data-screen-label="04 Tarot">
+  <div class="page-title">
+    <div class="eyebrow">塔羅占卜</div>
+    <h1>透過象徵 看見內心</h1>
+    <p>真人視訊塔羅 $300/次（約 40 分鐘），或免費試試 AI 即時塔羅體驗。</p>
+  </div>
+  <div class="people-grid stagger" id="tarotGrid"></div>
+  <div class="book-bar" id="tarotBookBar" hidden>
+    <div class="who"><div class="av" id="tBookAv">👤</div><div class="info"><b id="tBookName">—</b><span id="tBookTitle">請選擇一位塔羅師</span></div></div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap"><button class="btn-secondary" id="tTryVideo">🎥 視訊試演</button><button class="btn-primary" id="tBookBtn">📅 立即預約</button></div>
+  </div>
+  <div class="video-panel">
+    <div class="video-frame idle" id="tarotFrame">
+      <div class="video-idle-content">
+        <div class="ring">🔮</div>
+        <h3>視訊占卜室</h3>
+        <p>選擇上方塔羅師後可開始視訊</p>
+        <button class="start-btn" data-target="tarotFrame" disabled>🎥 開始視訊</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- AI Tarot -->
+  <div class="ai-tarot">
+    <div class="ai-card">
+      <h3>✦ AI 塔羅 · 即時牌陣解讀</h3>
+      <p class="sub">寫下你心中的問題，由 AI 即時抽出三張牌（過去 / 現在 / 未來），結合心理學象徵與塔羅意涵為你解讀。免費體驗，僅供參考。</p>
+      <div class="ai-form">
+        <input id="aiQuestion" type="text" placeholder="例如：我目前的工作狀態適合轉換嗎？" maxlength="80" />
+        <button id="aiSubmit">🔮 為我抽牌</button>
+      </div>
+      <div class="ai-result" id="aiResult"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SHOP ============ -->
+<section class="page" data-page="shop" data-screen-label="05 Shop">
+  <div class="page-title">
+    <div class="eyebrow">療癒商城</div>
+    <h1>把療癒帶回家</h1>
+    <p>精選植栽、花藝、文具、香氛與園藝工具，每一件都是日常療癒的好夥伴。</p>
+  </div>
+  <div class="shop-tabs" id="shopTabs"></div>
+  <div class="shop-grid stagger" id="shopGrid"></div>
+</section>
+
+<footer>
+  <div class="foot-inner">
+    <div class="foot-brand">
+      <a class="brand" data-route="home"><span class="brand-mark">🌿</span> MindGarden 心靈花園</a>
+      <p>以植物的力量與心理探索療癒心靈，提供園藝治療課程、心理諮商與塔羅占卜服務。</p>
+    </div>
+    <div><h4>服務</h4><ul><li data-route="courses">園藝治療課程</li><li data-route="counseling">線上晤談</li><li data-route="tarot">塔羅占卜</li><li data-route="shop">療癒商城</li></ul></div>
+    <div><h4>關於</h4><ul><li>關於我們</li><li>諮商師團隊</li><li>合作夥伴</li><li>常見問題</li></ul></div>
+    <div><h4>聯絡</h4><ul><li><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="93fbf6fffffcd3fefafdf7f4f2e1f7f6fdbde7e4">[email&#160;protected]</a></li><li>02-1234-5678</li><li>台北市大安區心靈路 100 號</li></ul></div>
+  </div>
+  <div class="foot-warn">⚠️ 本平台所有諮商心理師均持有合法執照，惟本平台不提供任何形式之醫療服務及診斷。緊急心理危機請撥打安心專線 1925。</div>
+  <div class="foot-bottom">© 2025 MindGarden 心靈花園 · Made with 🌿 for mental wellness</div>
+</footer>
+
+<!-- Scrim + Cart drawer -->
+<div class="scrim" id="scrim"></div>
+
+<aside class="cart-drawer" id="cartDrawer">
+  <div class="cart-head"><h3>🛒 我的購物車</h3><button class="cart-close" id="cartCloseBtn">✕</button></div>
+  <div class="cart-body" id="cartBody"></div>
+  <div class="cart-foot">
+    <div class="cart-total"><span class="lbl">小計</span><span class="amt" id="cartTotal">$0</span></div>
+    <button class="cart-checkout" id="cartCheckout">前往結帳</button>
+  </div>
+</aside>
+
+<!-- Modal -->
+<div class="modal" id="modal">
+  <div class="modal-head">
+    <div><h3 id="modalTitle">表單</h3><div class="modal-sub" id="modalSub"></div></div>
+    <button class="modal-close" id="modalClose">✕</button>
+  </div>
+  <div class="modal-body" id="modalBody"></div>
+</div>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="site-data.js"></script>
+<script>
+// ============== ROUTING + ANIMATIONS ==============
+function go(route) {
+  document.querySelectorAll(".page").forEach(p => p.classList.toggle("active", p.dataset.page === route));
+  document.querySelectorAll(".nav-link").forEach(l => l.classList.toggle("active", l.dataset.route === route));
+  // restart stagger animations
+  document.querySelectorAll(".page.active .stagger").forEach(el => {
+    el.style.animation = "none"; void el.offsetWidth; el.style.animation = "";
+  });
+  window.scrollTo({ top: 0, behavior: "instant" });
+}
+document.body.addEventListener("click", e => {
+  const t = e.target.closest("[data-route]");
+  if (t) { e.preventDefault(); go(t.dataset.route); }
+});
+
+// ============== COURSES ==============
+function renderCourses(sortKey = "price-asc") {
+  const grid = document.getElementById("courseGrid");
+  const list = [...COURSES];
+  if (sortKey === "price-asc") list.sort((a, b) => a.price - b.price);
+  else if (sortKey === "price-desc") list.sort((a, b) => b.price - a.price);
+  document.getElementById("course-count").textContent = `共 ${list.length} 堂課程`;
+  grid.innerHTML = list.map(c => `
+    <article class="course-card">
+      <div class="course-cover" style="background:${c.bg};">${c.icon}<span class="badge">${c.tag}</span></div>
+      <div class="course-body">
+        <h3>${c.title}</h3>
+        <div class="lead">${c.lead}</div>
+        <div class="course-section"><b>✨ 課程亮點</b><ul>${c.highlights.map(h=>`<li>${h}</li>`).join("")}</ul></div>
+        <div class="course-section audience"><b>👥 適合對象</b><ul>${c.audience.map(a=>`<li>${a}</li>`).join("")}</ul></div>
+        <div class="course-meta"><span>⏱ ${c.duration}</span><span>📚 ${c.level}</span><span>👥 上限 ${c.cap}</span></div>
+        <div class="course-foot">
+          <div class="course-price">$${c.price.toLocaleString()}<small>起</small></div>
+          <button class="btn-primary" data-action="signup-course" data-id="${c.id}">報名課程 →</button>
+        </div>
+      </div>
+    </article>`).join("");
+  // restart stagger
+  grid.style.animation = "none"; void grid.offsetWidth; grid.style.animation = "";
+  Array.from(grid.children).forEach((el,i)=>{
+    el.style.opacity="0"; el.style.transform="translateY(12px)";
+    el.style.animation = `stagger .55s var(--mg-ease) ${0.05+i*0.07}s forwards`;
+  });
+}
+renderCourses("price-asc");
+document.getElementById("sortBy").addEventListener("change", e => renderCourses(e.target.value));
+
+// ============== PEOPLE ==============
+function personHTML(p, role) {
+  const bg = role === "counselor" ? "linear-gradient(135deg,#dcebd9,#b9d6b4)" : "linear-gradient(135deg,#2f3d6b,#4a5b8c)";
+  const price = role === "counselor" ? "$100 / 30分" : "$300 / 次";
+  const roleTag = role === "counselor" ? "持照諮商師" : "認證塔羅師";
+  return `<article class="person" data-id="${p.id}" data-role="${role}">
+    <div class="person-portrait" style="background:${bg};color:${role==='tarot'?'#f5d99c':''};">${p.avatar}<span class="roleTag">${roleTag}</span><span class="priceTag">${price}</span></div>
+    <div class="person-body">
+      <h3>${p.name}</h3>
+      <div class="title">${p.title}</div>
+      <div class="bio">${p.bio}</div>
+      <div class="specs">${p.specs.map(s=>`<span class="spec">${s}</span>`).join("")}</div>
+      <div class="stars">${p.stars} <span style="color:var(--mg-fg-3);font-size:11px">· ${p.years} 年經驗</span></div>
+    </div>
+    <div class="pers-foot">點擊選擇 →</div>
+  </article>`;
+}
+document.getElementById("counselorGrid").innerHTML = COUNSELORS.map(c => personHTML(c, "counselor")).join("");
+document.getElementById("tarotGrid").innerHTML = TAROT_READERS.map(t => personHTML(t, "tarot")).join("");
+
+let selectedCounselor = null, selectedTarot = null;
+
+function selectPerson(role, id) {
+  const list = role === "counselor" ? COUNSELORS : TAROT_READERS;
+  const p = list.find(x => x.id === id);
+  if (!p) return;
+  const grid = document.getElementById(role === "counselor" ? "counselorGrid" : "tarotGrid");
+  grid.querySelectorAll(".person").forEach(el => el.classList.toggle("selected", el.dataset.id === id));
+  const bar = document.getElementById(role === "counselor" ? "counselorBookBar" : "tarotBookBar");
+  bar.hidden = false;
+  bar.querySelector("[id$='BookAv']").textContent = p.avatar;
+  bar.querySelector("[id$='BookName']").textContent = p.name;
+  bar.querySelector("[id$='BookTitle']").textContent = p.title;
+  if (role === "counselor") selectedCounselor = p; else selectedTarot = p;
+  // enable video button
+  const frameId = role === "counselor" ? "counselFrame" : "tarotFrame";
+  const btn = document.querySelector(`#${frameId} .start-btn`);
+  if (btn) { btn.disabled = false; btn.dataset.name = p.name + (role==="counselor"?" 諮商心理師":" 塔羅師"); }
+}
+document.getElementById("counselorGrid").addEventListener("click", e => { const p = e.target.closest(".person"); if (p) selectPerson("counselor", p.dataset.id); });
+document.getElementById("tarotGrid").addEventListener("click", e => { const p = e.target.closest(".person"); if (p) selectPerson("tarot", p.dataset.id); });
+document.getElementById("cBookBtn").addEventListener("click", () => { if (selectedCounselor) openBookingForm("counselor", selectedCounselor); });
+document.getElementById("tBookBtn").addEventListener("click", () => { if (selectedTarot) openBookingForm("tarot", selectedTarot); });
+document.getElementById("cTryVideo").addEventListener("click", () => { if (selectedCounselor) startVideo("counselFrame", selectedCounselor.name+" 諮商心理師"); });
+document.getElementById("tTryVideo").addEventListener("click", () => { if (selectedTarot) startVideo("tarotFrame", selectedTarot.name+" 塔羅師"); });
+
+// ============== VIDEO ==============
+let timerInterval = null;
+function startVideo(frameId, name) {
+  const frame = document.getElementById(frameId);
+  let elapsed = 0;
+  frame.classList.remove("idle"); frame.classList.add("live");
+  frame.innerHTML = `
+    <div class="video-feed"><div class="avatar">👤</div></div>
+    <div class="video-name-tag"><span class="live-dot"></span>${name} · LIVE</div>
+    <div class="video-timer" id="${frameId}-timer">00:00</div>
+    <div class="video-self">📷 我（鏡頭預覽）</div>
+    <div class="video-controls">
+      <button class="vc-btn" data-act="mic">🎤</button>
+      <button class="vc-btn" data-act="cam">📹</button>
+      <button class="vc-btn" data-act="share">🖥️</button>
+      <button class="vc-btn end" data-act="end">結束</button>
+    </div>`;
+  if (timerInterval) clearInterval(timerInterval);
+  const timerEl = document.getElementById(`${frameId}-timer`);
+  timerInterval = setInterval(() => {
+    elapsed++;
+    const m = String(Math.floor(elapsed/60)).padStart(2,"0");
+    const s = String(elapsed%60).padStart(2,"0");
+    if (timerEl) timerEl.textContent = `${m}:${s}`;
+  }, 1000);
+  frame.querySelectorAll(".vc-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      if (btn.dataset.act === "end") endVideo(frameId);
+      else if (["mic","cam"].includes(btn.dataset.act)) btn.classList.toggle("muted");
+    });
+  });
+}
+function endVideo(frameId) {
+  if (timerInterval) { clearInterval(timerInterval); timerInterval = null; }
+  const frame = document.getElementById(frameId);
+  frame.classList.remove("live"); frame.classList.add("idle");
+  const isTarot = frameId === "tarotFrame";
+  frame.innerHTML = `
+    <div class="video-idle-content">
+      <div class="ring">${isTarot ? "🔮" : "📹"}</div>
+      <h3>${isTarot ? "感謝您今天的占卜" : "晤談已結束"}</h3>
+      <p>${isTarot ? "願塔羅的智慧陪伴您之後的旅程" : "希望今天的晤談對您有所幫助"}</p>
+      <button class="start-btn" data-target="${frameId}">🎥 再次視訊</button>
+    </div>`;
+}
+document.body.addEventListener("click", e => {
+  const btn = e.target.closest(".start-btn");
+  if (btn && !btn.disabled && btn.dataset.target) {
+    const role = btn.dataset.target === "counselFrame" ? "counselor" : "tarot";
+    const sel = role === "counselor" ? selectedCounselor : selectedTarot;
+    if (sel) startVideo(btn.dataset.target, sel.name + (role==="counselor"?" 諮商心理師":" 塔羅師"));
+  }
+});
+
+// ============== SHOP ==============
+let activeCat = "all";
+function renderShopTabs() {
+  const counts = SHOP_CATEGORIES.map(c => c.id === "all" ? PRODUCTS.length : PRODUCTS.filter(p => p.cat === c.id).length);
+  document.getElementById("shopTabs").innerHTML = SHOP_CATEGORIES.map((c,i) =>
+    `<button class="shop-tab ${c.id===activeCat?'active':''}" data-cat="${c.id}">${c.icon} ${c.name} <span class="ct">(${counts[i]})</span></button>`).join("");
+}
+function renderShop() {
+  const list = activeCat === "all" ? PRODUCTS : PRODUCTS.filter(p => p.cat === activeCat);
+  const grid = document.getElementById("shopGrid");
+  grid.innerHTML = list.map(p => `
+    <article class="product" data-id="${p.id}">
+      <div class="product-img" style="background:linear-gradient(135deg,var(--mg-green-100),var(--mg-cream-100));">${p.icon}</div>
+      <div class="product-body">
+        <h4>${p.name}</h4>
+        <div class="cat">${p.catName}</div>
+        <div class="desc">${p.desc}</div>
+        <div class="product-foot">
+          <span class="product-price">$${p.price.toLocaleString()}</span>
+          <button class="add-cart" data-action="add-cart" data-id="${p.id}" aria-label="加入購物車">+</button>
+        </div>
+      </div>
+    </article>`).join("");
+  // restart stagger
+  Array.from(grid.children).forEach((el,i)=>{
+    el.style.opacity="0"; el.style.transform="translateY(12px)";
+    el.style.animation = `stagger .45s var(--mg-ease) ${i*0.04}s forwards`;
+  });
+}
+document.getElementById("shopTabs").addEventListener("click", e => {
+  const t = e.target.closest(".shop-tab");
+  if (t) { activeCat = t.dataset.cat; renderShopTabs(); renderShop(); }
+});
+renderShopTabs(); renderShop();
+
+// ============== CART ==============
+const cart = new Map();
+function fmtMoney(n) { return "$" + n.toLocaleString(); }
+function addToCart(productId, fromEl) {
+  const p = PRODUCTS.find(x => x.id === productId);
+  if (!p) return;
+  const existing = cart.get(productId);
+  cart.set(productId, { ...p, qty: existing ? existing.qty + 1 : 1 });
+  renderCart();
+  // bump
+  const cartBtn = document.getElementById("cartBtn");
+  cartBtn.classList.remove("bump"); void cartBtn.offsetWidth; cartBtn.classList.add("bump");
+  // fly animation
+  if (fromEl) {
+    const start = fromEl.getBoundingClientRect();
+    const end = cartBtn.getBoundingClientRect();
+    const fly = document.createElement("div"); fly.className = "fly"; fly.textContent = p.icon;
+    fly.style.left = start.left + "px"; fly.style.top = start.top + "px";
+    document.body.appendChild(fly);
+    requestAnimationFrame(() => {
+      fly.style.left = end.left + 4 + "px"; fly.style.top = end.top + 4 + "px";
+      fly.style.transform = "scale(0.3) rotate(360deg)"; fly.style.opacity = "0.2";
+    });
+    setTimeout(() => fly.remove(), 850);
+  }
+  toast(`✓ 已加入購物車 · ${p.name}`);
+}
+function removeFromCart(id) { cart.delete(id); renderCart(); }
+function changeQty(id, delta) {
+  const it = cart.get(id); if (!it) return;
+  it.qty = Math.max(1, it.qty + delta); cart.set(id, it); renderCart();
+}
+function renderCart() {
+  const body = document.getElementById("cartBody");
+  const items = [...cart.values()];
+  const total = items.reduce((s,it) => s + it.price * it.qty, 0);
+  document.getElementById("cartTotal").textContent = fmtMoney(total);
+  document.getElementById("cartCount").textContent = items.reduce((s,it)=>s+it.qty,0);
+  document.getElementById("cartCount").dataset.count = items.reduce((s,it)=>s+it.qty,0);
+  document.getElementById("cartCheckout").disabled = items.length === 0;
+  if (items.length === 0) {
+    body.innerHTML = `<div class="cart-empty"><div class="ic">🪴</div><div>購物車還是空的</div><div style="font-size:12px;margin-top:6px">逛逛療癒商城吧</div></div>`;
+    return;
+  }
+  body.innerHTML = items.map(it => `
+    <div class="cart-item">
+      <div class="thumb">${it.icon}</div>
+      <div class="meta">
+        <h4>${it.name}</h4>
+        <div class="pr">${fmtMoney(it.price)}</div>
+        <div class="qty">
+          <button data-id="${it.id}" data-d="-1">−</button>
+          <span>${it.qty}</span>
+          <button data-id="${it.id}" data-d="1">+</button>
+        </div>
+      </div>
+      <button class="rm" data-rm="${it.id}" aria-label="移除">🗑</button>
+    </div>`).join("");
+}
+function openCart() {
+  document.getElementById("scrim").classList.add("open");
+  document.getElementById("cartDrawer").classList.add("open");
+}
+function closeCart() {
+  document.getElementById("scrim").classList.remove("open");
+  document.getElementById("cartDrawer").classList.remove("open");
+  closeModal();
+}
+document.getElementById("cartBtn").addEventListener("click", openCart);
+document.getElementById("cartCloseBtn").addEventListener("click", closeCart);
+document.getElementById("scrim").addEventListener("click", closeCart);
+document.getElementById("cartBody").addEventListener("click", e => {
+  const rm = e.target.closest("[data-rm]"); if (rm) return removeFromCart(rm.dataset.rm);
+  const q = e.target.closest("[data-d]"); if (q) return changeQty(q.dataset.id, parseInt(q.dataset.d));
+});
+document.getElementById("cartCheckout").addEventListener("click", () => {
+  if (cart.size === 0) return;
+  openCheckoutForm();
+});
+renderCart();
+
+// product add-to-cart click
+document.body.addEventListener("click", e => {
+  const btn = e.target.closest("[data-action='add-cart']");
+  if (btn) addToCart(btn.dataset.id, btn);
+});
+
+// ============== TOAST ==============
+let toastTO = null;
+function toast(msg) {
+  const t = document.getElementById("toast");
+  t.textContent = msg; t.classList.add("show");
+  if (toastTO) clearTimeout(toastTO);
+  toastTO = setTimeout(() => t.classList.remove("show"), 2400);
+}
+
+// ============== MODAL ==============
+function openModal(title, sub, body) {
+  document.getElementById("modalTitle").innerHTML = title;
+  document.getElementById("modalSub").textContent = sub || "";
+  document.getElementById("modalBody").innerHTML = body;
+  document.getElementById("scrim").classList.add("open");
+  document.getElementById("modal").classList.add("open");
+}
+function closeModal() {
+  document.getElementById("modal").classList.remove("open");
+  // keep scrim if cart open
+  if (!document.getElementById("cartDrawer").classList.contains("open")) document.getElementById("scrim").classList.remove("open");
+}
+document.getElementById("modalClose").addEventListener("click", closeModal);
+
+// ===== Course signup =====
+document.body.addEventListener("click", e => {
+  const btn = e.target.closest("[data-action='signup-course']");
+  if (btn) {
+    const c = COURSES.find(x => x.id == btn.dataset.id);
+    if (c) openCourseSignup(c);
+  }
+});
+function openCourseSignup(course) {
+  const body = `
+    <div class="summary-box">
+      <div class="ic">${course.icon}</div>
+      <div><b>${course.title}</b><div class="sub">${course.duration} · ${course.level} · 上限 ${course.cap}</div><div style="font-family:var(--mg-font-num);font-weight:800;color:var(--mg-green-700);font-size:18px;margin-top:4px;">$${course.price.toLocaleString()}</div></div>
+    </div>
+    <form id="signupForm">
+      <div class="field row2"><div><label>姓名 <span class="req">*</span></label><input required name="name" placeholder="王小花" /></div><div><label>聯絡電話 <span class="req">*</span></label><input required name="phone" placeholder="0912-345-678" /></div></div>
+      <div class="field"><label>Email <span class="req">*</span></label><input required type="email" name="email" placeholder="hello@mindgarden.tw" /></div>
+      <div class="field"><label>聯絡地址</label><input name="addr" placeholder="台北市大安區心靈路 100 號" /></div>
+      <div class="field"><label>希望上課梯次</label><select name="batch"><option>2026/05/15 (五) 14:00 - 16:00</option><option>2026/05/22 (五) 14:00 - 16:00</option><option>2026/05/29 (五) 14:00 - 16:00</option><option>其他時段（會再聯繫）</option></select></div>
+      <div class="field"><label>備註（任何想讓老師知道的事）</label><textarea name="notes" placeholder="例如：第一次上課，對植物完全沒概念..."></textarea></div>
+      <div style="display:flex;gap:10px;justify-content:flex-end;margin-top:8px"><button type="button" class="btn-secondary" id="cancelSignup">取消</button><button type="submit" class="btn-primary">確認報名 →</button></div>
+    </form>`;
+  openModal(`報名 · ${course.title}`, "請填寫報名資訊，我們將於 1 個工作天內聯繫您", body);
+  document.getElementById("cancelSignup").addEventListener("click", closeModal);
+  document.getElementById("signupForm").addEventListener("submit", e => {
+    e.preventDefault();
+    const data = Object.fromEntries(new FormData(e.target));
+    document.getElementById("modalBody").innerHTML = `<div class="success-state"><div class="ring">✓</div><h3>報名成功！</h3><p>${data.name} 您好，我們已收到您的「${course.title}」報名。<br>稍後將以 Email 寄出確認信，請留意 ${data.email} 信箱。</p><div style="margin-top:18px"><button class="btn-primary" id="okClose">了解</button></div></div>`;
+    document.getElementById("modalTitle").textContent = "✓ 報名完成";
+    document.getElementById("modalSub").textContent = "";
+    document.getElementById("okClose").addEventListener("click", closeModal);
+    toast("✓ 報名成功 · 將寄出確認信");
+  });
+}
+
+// ===== Booking form (counselor / tarot) =====
+function openBookingForm(role, p) {
+  const isCounselor = role === "counselor";
+  const price = isCounselor ? "$100 / 30分鐘" : "$300 / 次（約 40 分鐘）";
+  const sessions = isCounselor
+    ? ["明天 (五) 19:00 - 19:30", "明天 (五) 20:00 - 20:30", "週六 14:00 - 14:30", "週六 21:00 - 21:30"]
+    : ["明天 (五) 20:00 - 20:40", "週六 15:00 - 15:40", "週日 19:00 - 19:40", "下週一 21:00 - 21:40"];
+  const types = isCounselor
+    ? `<select name="mode"><option>📞 電話晤談（含視訊）</option><option>💬 文字對話</option></select>`
+    : `<select name="mode"><option>🎥 視訊塔羅</option><option>🎴 三張牌陣（含象徵解讀）</option><option>🎴 凱爾特十字（深度議題）</option></select>`;
+
+  const body = `
+    <div class="summary-box">
+      <div class="ic">${p.avatar}</div>
+      <div><b>${p.name} · ${isCounselor ? "諮商心理師" : "塔羅師"}</b><div class="sub">${p.title}</div><div style="font-family:var(--mg-font-num);font-weight:800;color:var(--mg-green-700);font-size:16px;margin-top:4px;">${price}</div></div>
+    </div>
+    <form id="bookForm">
+      <div class="field row2"><div><label>姓名 <span class="req">*</span></label><input required name="name" placeholder="王小花" /></div><div><label>聯絡電話 <span class="req">*</span></label><input required name="phone" placeholder="0912-345-678" /></div></div>
+      <div class="field"><label>Email <span class="req">*</span></label><input required type="email" name="email" placeholder="hello@mindgarden.tw" /></div>
+      <div class="field"><label>${isCounselor ? "晤談形式" : "占卜形式"}</label>${types}</div>
+      <div class="field"><label>希望時段 <span class="req">*</span></label><select required name="slot">${sessions.map(s=>`<option>${s}</option>`).join("")}</select></div>
+      <div class="field"><label>${isCounselor ? "想聊聊的議題（可不填）" : "想諮詢的問題（可不填）"}</label><textarea name="topic" placeholder="${isCounselor ? "例如：最近職場壓力很大..." : "例如：感情近況..."}"></textarea></div>
+      <div style="display:flex;gap:10px;justify-content:flex-end;margin-top:8px"><button type="button" class="btn-secondary" id="cancelBook">取消</button><button type="submit" class="btn-primary">確認預約 →</button></div>
+    </form>`;
+  openModal(`預約 · ${p.name}`, "請填寫基本資訊，預約成功後將以 Email 寄出視訊連結", body);
+  document.getElementById("cancelBook").addEventListener("click", closeModal);
+  document.getElementById("bookForm").addEventListener("submit", e => {
+    e.preventDefault();
+    const data = Object.fromEntries(new FormData(e.target));
+    document.getElementById("modalBody").innerHTML = `<div class="success-state"><div class="ring">✓</div><h3>預約成功！</h3><p>${data.name} 您好，您已成功預約 ${p.name}。<br>時段：<b>${data.slot}</b><br>確認信將寄至 ${data.email}</p><div style="margin-top:18px"><button class="btn-primary" id="okClose">了解</button></div></div>`;
+    document.getElementById("modalTitle").textContent = "✓ 預約完成";
+    document.getElementById("modalSub").textContent = "";
+    document.getElementById("okClose").addEventListener("click", closeModal);
+    toast(`✓ 已預約 ${p.name}`);
+  });
+}
+
+// ===== Checkout form =====
+function openCheckoutForm() {
+  const items = [...cart.values()];
+  const total = items.reduce((s,it) => s + it.price * it.qty, 0);
+  const summary = items.map(it => `<div style="display:flex;justify-content:space-between;font-size:13px;padding:4px 0;color:var(--mg-fg-2)"><span>${it.icon} ${it.name} ×${it.qty}</span><span class="mg-num" style="font-weight:700;color:var(--mg-green-700)">${fmtMoney(it.price*it.qty)}</span></div>`).join("");
+  const body = `
+    <div class="summary-box" style="display:block">
+      ${summary}
+      <div style="display:flex;justify-content:space-between;margin-top:10px;padding-top:10px;border-top:1px solid var(--mg-green-200);font-family:var(--mg-font-display);"><b>小計</b><b class="mg-num" style="font-size:18px;color:var(--mg-green-700)">${fmtMoney(total)}</b></div>
+    </div>
+    <form id="checkoutForm">
+      <div class="field row2"><div><label>姓名 <span class="req">*</span></label><input required name="name" /></div><div><label>聯絡電話 <span class="req">*</span></label><input required name="phone" /></div></div>
+      <div class="field"><label>Email <span class="req">*</span></label><input required type="email" name="email" /></div>
+      <div class="field"><label>收件地址 <span class="req">*</span></label><input required name="addr" placeholder="台北市..." /></div>
+      <div class="field"><label>付款方式</label><select name="pay"><option>💳 信用卡</option><option>🏧 ATM 轉帳</option><option>📦 貨到付款</option></select></div>
+      <div style="display:flex;gap:10px;justify-content:flex-end;margin-top:8px"><button type="button" class="btn-secondary" id="cancelCheck">取消</button><button type="submit" class="btn-primary">確認結帳 →</button></div>
+    </form>`;
+  openModal("結帳", `共 ${items.reduce((s,i)=>s+i.qty,0)} 件商品`, body);
+  document.getElementById("cancelCheck").addEventListener("click", closeModal);
+  document.getElementById("checkoutForm").addEventListener("submit", e => {
+    e.preventDefault();
+    const data = Object.fromEntries(new FormData(e.target));
+    document.getElementById("modalBody").innerHTML = `<div class="success-state"><div class="ring">✓</div><h3>下單成功！</h3><p>${data.name} 您好，訂單共 ${fmtMoney(total)}。<br>商品將於 3-5 個工作天內寄達。</p><div style="margin-top:18px"><button class="btn-primary" id="okClose">了解</button></div></div>`;
+    document.getElementById("modalTitle").textContent = "✓ 訂單完成";
+    cart.clear(); renderCart();
+    document.getElementById("okClose").addEventListener("click", closeCart);
+    toast("✓ 下單成功 · 感謝購買");
+  });
+}
+
+// ============== AI TAROT ==============
+const MAJOR_ARCANA = [
+  ["愚者","0","🌅"],["魔術師","I","✦"],["女祭司","II","☽"],["皇后","III","♛"],["皇帝","IV","♚"],["教皇","V","☩"],
+  ["戀人","VI","♥"],["戰車","VII","⚔"],["力量","VIII","∞"],["隱者","IX","🕯"],["命運之輪","X","☸"],["正義","XI","⚖"],
+  ["吊人","XII","↧"],["死神","XIII","☠"],["節制","XIV","⚱"],["惡魔","XV","♅"],["塔","XVI","⚡"],["星星","XVII","★"],
+  ["月亮","XVIII","☾"],["太陽","XIX","☀"],["審判","XX","♪"],["世界","XXI","◯"]
+];
+const POSITIONS = ["過去", "現在", "未來"];
+
+function pull3Cards() {
+  const idx = []; while (idx.length < 3) { const r = Math.floor(Math.random()*MAJOR_ARCANA.length); if (!idx.includes(r)) idx.push(r); }
+  return idx.map((i,k) => ({ ...{name: MAJOR_ARCANA[i][0], roman: MAJOR_ARCANA[i][1], sym: MAJOR_ARCANA[i][2]}, position: POSITIONS[k] }));
+}
+
+document.getElementById("aiSubmit").addEventListener("click", async () => {
+  const q = document.getElementById("aiQuestion").value.trim();
+  if (!q) { document.getElementById("aiQuestion").focus(); return; }
+  const cards = pull3Cards();
+  const result = document.getElementById("aiResult");
+  const btn = document.getElementById("aiSubmit");
+  btn.disabled = true; btn.textContent = "🔮 正在解讀...";
+  result.innerHTML = `
+    <div class="ai-pulled">
+      ${cards.map(c => `<div class="mini-card"><div class="pos">${c.position}</div><div class="sym">${c.sym}</div><div class="nm">${c.name}</div></div>`).join("")}
+    </div>
+    <div class="ai-reading"><div class="ai-loading"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span style="margin-left:8px">塔羅師正在凝視牌面...</span></div></div>`;
+
+  const prompt = `你是溫柔且具心理學素養的塔羅諮詢師。以繁體中文回應，使用台灣慣用語。
+提問者的問題：「${q}」
+抽出的三張牌：
+- 過去：${cards[0].name}（${cards[0].roman}）
+- 現在：${cards[1].name}（${cards[1].roman}）
+- 未來：${cards[2].name}（${cards[2].roman}）
+
+請用 200-300 字進行解讀，分為三段（過去、現在、未來），結合塔羅象徵與心理學視角，最後給出一句溫暖的建議。語調溫柔，不要醫療診斷，不要絕對預言。直接輸出解讀，不要前言。`;
+
+  try {
+    const text = await window.claude.complete(prompt);
+    const reading = result.querySelector(".ai-reading");
+    reading.innerHTML = ""; reading.textContent = text;
+  } catch (err) {
+    result.querySelector(".ai-reading").innerHTML = `<div style="color:#ffaaaa">⚠️ AI 解讀暫時無法使用，請稍後再試或預約真人塔羅師。</div>`;
+  } finally {
+    btn.disabled = false; btn.textContent = "🔮 為我抽牌";
+  }
+});
+
+// ============== INIT ==============
+go("home");
+</script>
+</body>
+</html>
