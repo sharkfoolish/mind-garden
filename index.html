@@ -24,13 +24,16 @@
       <span class="brand-mark">🌿</span>
       <span>MindGarden 心靈花園</span>
     </a>
-    <div class="nav-links">
+    <div class="nav-links" id="navLinks">
       <button class="nav-link" data-route="home">首頁</button>
       <button class="nav-link" data-route="courses">園藝治療課程</button>
       <button class="nav-link" data-route="counseling">線上晤談</button>
       <button class="nav-link" data-route="tarot">塔羅占卜</button>
       <button class="nav-link" data-route="shop">療癒商城</button>
+    </div>
+    <div class="nav-actions">
       <button class="cart-btn" id="cartBtn" aria-label="購物車">🛒<span class="cart-count" id="cartCount" data-count="0">0</span></button>
+      <button class="menu-btn" id="menuBtn" aria-label="選單">☰</button>
     </div>
   </div>
 </nav>
@@ -243,6 +246,7 @@
 <script>
 // ============== ROUTING + ANIMATIONS ==============
 function go(route) {
+  document.getElementById("navLinks").classList.remove("open");
   document.querySelectorAll(".page").forEach(p => p.classList.toggle("active", p.dataset.page === route));
   document.querySelectorAll(".nav-link").forEach(l => l.classList.toggle("active", l.dataset.route === route));
   // restart stagger animations
@@ -862,6 +866,11 @@ document.getElementById("aiSubmit").addEventListener("click", async () => {
   } finally {
     btn.disabled = false; btn.textContent = "🔮 為我抽牌";
   }
+});
+
+// ============== MOBILE MENU ==============
+document.getElementById("menuBtn").addEventListener("click", () => {
+  document.getElementById("navLinks").classList.toggle("open");
 });
 
 // ============== INIT ==============

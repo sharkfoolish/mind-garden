@@ -11,6 +11,9 @@ html, body { scroll-behavior: smooth; }
 .brand-mark { width: 36px; height: 36px; border-radius: 50%; background: var(--mg-green-500); display: grid; place-items: center; color: white; font-size: 18px; box-shadow: var(--mg-shadow-sm); transition: transform var(--mg-dur-2) var(--mg-ease); }
 .brand:hover .brand-mark { transform: rotate(-12deg) scale(1.08); }
 .nav-links { display: flex; gap: 4px; align-items: center; }
+.nav-actions { display: flex; align-items: center; gap: 8px; }
+.menu-btn { display: none; width: 40px; height: 40px; border-radius: 50%; border: 1.5px solid var(--mg-green-300); background: white; cursor: pointer; font-size: 18px; place-items: center; transition: all var(--mg-dur-2) var(--mg-ease); }
+.menu-btn:hover { background: var(--mg-green-50); }
 .nav-link { padding: 8px 14px; border-radius: var(--mg-r-pill); color: var(--mg-fg-2); font-size: 15px; font-weight: 500; cursor: pointer; background: transparent; border: 0;
   transition: all var(--mg-dur-1) var(--mg-ease); font-family: inherit; }
 .nav-link:hover { background: var(--mg-green-50); color: var(--mg-green-700); }
@@ -437,6 +440,22 @@ footer ul a:hover, footer ul li:hover { color: white; }
   .shop-grid { grid-template-columns: repeat(2, 1fr); }
   .foot-inner { grid-template-columns: 1fr 1fr; }
   .pricing-grid { grid-template-columns: 1fr; }
-  .nav-links { display: none; }
-  .nav-links.compact { display: flex; }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0; right: 0;
+    flex-direction: column;
+    gap: 2px;
+    padding: 10px 16px 16px;
+    background: rgba(251,248,241,0.97);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--mg-border);
+    box-shadow: 0 8px 24px rgba(47,104,50,0.1);
+    z-index: 99;
+  }
+  .nav-links.open { display: flex; }
+  .menu-btn { display: grid; }
 }
