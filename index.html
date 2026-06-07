@@ -54,7 +54,9 @@
           <div class="hero-stat"><div class="num">100%</div><div class="lbl">持照諮商師</div></div>
         </div>
       </div>
-      <div class="hero-art"><div class="hero-emoji-stack">🌿</div></div>
+      <div class="hero-art">
+        <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=700&h=700&fit=crop&auto=format" alt="心靈花園療癒植物" loading="eager" />
+      </div>
     </div>
   </div>
 
@@ -65,10 +67,10 @@
       <p>從課程學習到專業諮商，從線上服務到實體商品，MindGarden 陪伴您每一個需要療癒的時刻。</p>
     </div>
     <div class="service-grid stagger">
-      <a class="service-card" data-route="courses"><div class="service-thumb">🪴<span class="service-tag">5 種課程</span></div><h3>園藝治療課程</h3><p>透過種植、花藝與自然接觸，以植物為媒介療癒身心，提供五大主題課程。</p><span class="service-link">了解更多 →</span></a>
-      <a class="service-card" data-route="counseling"><div class="service-thumb">💬<span class="service-tag">電訪 &amp; 文字</span></div><h3>心理諮商師線上晤談</h3><p>電話晤談每半小時 $100，文字對話每半小時 $80。持照諮商師陪伴。</p><span class="service-link">了解更多 →</span></a>
-      <a class="service-card" data-route="tarot"><div class="service-thumb">🔮<span class="service-tag">真人 + AI</span></div><h3>塔羅牌占卜</h3><p>真人視訊塔羅每次 $300，另提供 AI 即時牌陣解讀體驗。</p><span class="service-link">了解更多 →</span></a>
-      <a class="service-card" data-route="shop"><div class="service-thumb">🌸<span class="service-tag">5 大品類</span></div><h3>療癒商城</h3><p>精選植栽、花藝、文具、香氛、園藝工具，把療癒帶回家。</p><span class="service-link">了解更多 →</span></a>
+      <a class="service-card" data-route="courses"><div class="service-thumb"><img src="https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?w=400&h=250&fit=crop&auto=format" alt="園藝治療課程" loading="lazy" /><span class="service-tag">5 種課程</span></div><h3>園藝治療課程</h3><p>透過種植、花藝與自然接觸，以植物為媒介療癒身心，提供五大主題課程。</p><span class="service-link">了解更多 →</span></a>
+      <a class="service-card" data-route="counseling"><div class="service-thumb"><img src="https://images.unsplash.com/photo-1573497620053-ea5300f94f21?w=400&h=250&fit=crop&auto=format" alt="線上心理諮商" loading="lazy" /><span class="service-tag">電訪 &amp; 文字</span></div><h3>心理諮商師線上晤談</h3><p>電話晤談每半小時 $100，文字對話每半小時 $80。持照諮商師陪伴。</p><span class="service-link">了解更多 →</span></a>
+      <a class="service-card" data-route="tarot"><div class="service-thumb"><img src="https://images.unsplash.com/photo-1591228127791-8e2eaef098d3?w=400&h=250&fit=crop&auto=format" alt="塔羅占卜" loading="lazy" /><span class="service-tag">真人 + AI</span></div><h3>塔羅牌占卜</h3><p>真人視訊塔羅每次 $300，另提供 AI 即時牌陣解讀體驗。</p><span class="service-link">了解更多 →</span></a>
+      <a class="service-card" data-route="shop"><div class="service-thumb"><img src="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?w=400&h=250&fit=crop&auto=format" alt="療癒商城" loading="lazy" /><span class="service-tag">5 大品類</span></div><h3>療癒商城</h3><p>精選植栽、花藝、文具、香氛、園藝工具，把療癒帶回家。</p><span class="service-link">了解更多 →</span></a>
     </div>
   </div>
 
@@ -182,6 +184,7 @@
     <p>精選植栽、花藝、文具、香氛與園藝工具，每一件都是日常療癒的好夥伴。</p>
   </div>
   <div class="shop-tabs" id="shopTabs"></div>
+  <div class="shop-promo-strip" id="shopPromoStrip"></div>
   <div class="shop-grid stagger" id="shopGrid"></div>
 </section>
 
@@ -206,7 +209,20 @@
   <div class="cart-head"><h3>🛒 我的購物車</h3><button class="cart-close" id="cartCloseBtn">✕</button></div>
   <div class="cart-body" id="cartBody"></div>
   <div class="cart-foot">
-    <div class="cart-total"><span class="lbl">小計</span><span class="amt" id="cartTotal">$0</span></div>
+    <div class="cart-promo-bar" id="cartPromoBar"></div>
+    <div class="cart-coupon">
+      <div class="cart-coupon-row">
+        <input class="coupon-input" id="couponInput" type="text" placeholder="輸入折扣碼（大寫英文）" maxlength="20" />
+        <button class="coupon-btn" id="couponApplyBtn">套用</button>
+      </div>
+      <div class="coupon-msg" id="couponMsg"></div>
+    </div>
+    <div class="cart-breakdown">
+      <div class="bd-row"><span>商品小計</span><span id="cartSubtotal">$0</span></div>
+      <div class="bd-row bd-saving" id="promoDiscRow" style="display:none"><span id="promoDiscLabel">促銷優惠</span><span id="promoDiscAmt"></span></div>
+      <div class="bd-row bd-saving" id="couponDiscRow" style="display:none"><span id="couponDiscLabel">折扣碼優惠</span><span id="couponDiscAmt"></span></div>
+      <div class="bd-total-row"><span>合計</span><span class="cart-total-amt" id="cartTotal">$0</span></div>
+    </div>
     <button class="cart-checkout" id="cartCheckout">前往結帳</button>
   </div>
 </aside>
@@ -249,7 +265,10 @@ function renderCourses(sortKey = "price-asc") {
   document.getElementById("course-count").textContent = `共 ${list.length} 堂課程`;
   grid.innerHTML = list.map(c => `
     <article class="course-card">
-      <div class="course-cover" style="background:${c.bg};">${c.icon}<span class="badge">${c.tag}</span></div>
+      <div class="course-cover" style="background:${c.bg};">
+        <img src="${c.img}" alt="${c.title}" loading="lazy" onerror="this.remove()" />
+        <span class="badge">${c.tag}</span>
+      </div>
       <div class="course-body">
         <h3>${c.title}</h3>
         <div class="lead">${c.lead}</div>
@@ -384,7 +403,10 @@ function renderShop() {
   const grid = document.getElementById("shopGrid");
   grid.innerHTML = list.map(p => `
     <article class="product" data-id="${p.id}">
-      <div class="product-img" style="background:linear-gradient(135deg,var(--mg-green-100),var(--mg-cream-100));">${p.icon}</div>
+      <div class="product-img">
+        <div class="product-img-icon">${p.icon}</div>
+        <img src="${p.img}" alt="${p.name}" loading="lazy" onerror="this.remove()" />
+      </div>
       <div class="product-body">
         <h4>${p.name}</h4>
         <div class="cat">${p.catName}</div>
@@ -405,21 +427,54 @@ document.getElementById("shopTabs").addEventListener("click", e => {
   const t = e.target.closest(".shop-tab");
   if (t) { activeCat = t.dataset.cat; renderShopTabs(); renderShop(); }
 });
-renderShopTabs(); renderShop();
+
+function renderShopPromoStrip() {
+  const el = document.getElementById("shopPromoStrip");
+  if (!el) return;
+  el.innerHTML = `<div class="shop-promo-inner">
+    <span class="promo-label">🎁 購物優惠</span>
+    <div class="shop-promo-tiers">
+      ${PROMOTIONS.map((p, i) => `<span class="promo-tier${i === PROMOTIONS.length-1 ? " best" : ""}">${p.label}</span>`).join("")}
+    </div>
+  </div>`;
+}
+renderShopTabs(); renderShop(); renderShopPromoStrip();
 
 // ============== CART ==============
 const cart = new Map();
+let appliedCoupon = null;
 function fmtMoney(n) { return "$" + n.toLocaleString(); }
+
+function getBestPromo(subtotal) {
+  return [...PROMOTIONS].reverse().find(p => subtotal >= p.min) || null;
+}
+
+function getCouponDiscount(base) {
+  if (!appliedCoupon || !DISCOUNT_CODES[appliedCoupon]) return 0;
+  const code = DISCOUNT_CODES[appliedCoupon];
+  if (code.type === "percent") return Math.round(base * code.value / 100);
+  return Math.min(code.value, base);
+}
+
+function calcSubtotal() {
+  return [...cart.values()].reduce((s, it) => s + it.price * it.qty, 0);
+}
+
+function getFinalTotal() {
+  const sub = calcSubtotal();
+  const promo = getBestPromo(sub);
+  const promoAmt = promo ? promo.discount : 0;
+  return Math.max(0, sub - promoAmt - getCouponDiscount(sub - promoAmt));
+}
+
 function addToCart(productId, fromEl) {
-  const p = PRODUCTS.find(x => x.id === productId);
+  const p = PRODUCTS.find(x => x.id === productId) || ADD_ON_PRODUCTS.find(x => x.id === productId);
   if (!p) return;
   const existing = cart.get(productId);
   cart.set(productId, { ...p, qty: existing ? existing.qty + 1 : 1 });
   renderCart();
-  // bump
   const cartBtn = document.getElementById("cartBtn");
   cartBtn.classList.remove("bump"); void cartBtn.offsetWidth; cartBtn.classList.add("bump");
-  // fly animation
   if (fromEl) {
     const start = fromEl.getBoundingClientRect();
     const end = cartBtn.getBoundingClientRect();
@@ -434,37 +489,130 @@ function addToCart(productId, fromEl) {
   }
   toast(`✓ 已加入購物車 · ${p.name}`);
 }
+
+function toggleAddOn(id) {
+  if (cart.has(id)) {
+    cart.delete(id);
+    toast(`已移除加購商品`);
+  } else {
+    const p = ADD_ON_PRODUCTS.find(x => x.id === id);
+    if (p) { cart.set(id, { ...p, qty: 1 }); toast(`✓ 已加入加購 · ${p.name}`); }
+  }
+  renderCart();
+}
+
 function removeFromCart(id) { cart.delete(id); renderCart(); }
 function changeQty(id, delta) {
   const it = cart.get(id); if (!it) return;
   it.qty = Math.max(1, it.qty + delta); cart.set(id, it); renderCart();
 }
+
 function renderCart() {
   const body = document.getElementById("cartBody");
-  const items = [...cart.values()];
-  const total = items.reduce((s,it) => s + it.price * it.qty, 0);
+  const allItems = [...cart.values()];
+  const regularItems = allItems.filter(it => it.id.startsWith("p"));
+  const addOnItems = allItems.filter(it => it.id.startsWith("a"));
+  const subtotal = calcSubtotal();
+  const promo = getBestPromo(subtotal);
+  const promoAmt = promo ? promo.discount : 0;
+  const couponAmt = getCouponDiscount(subtotal - promoAmt);
+  const total = Math.max(0, subtotal - promoAmt - couponAmt);
+  const totalQty = allItems.reduce((s, it) => s + it.qty, 0);
+
+  document.getElementById("cartSubtotal").textContent = fmtMoney(subtotal);
   document.getElementById("cartTotal").textContent = fmtMoney(total);
-  document.getElementById("cartCount").textContent = items.reduce((s,it)=>s+it.qty,0);
-  document.getElementById("cartCount").dataset.count = items.reduce((s,it)=>s+it.qty,0);
-  document.getElementById("cartCheckout").disabled = items.length === 0;
-  if (items.length === 0) {
-    body.innerHTML = `<div class="cart-empty"><div class="ic">🪴</div><div>購物車還是空的</div><div style="font-size:12px;margin-top:6px">逛逛療癒商城吧</div></div>`;
-    return;
+  document.getElementById("cartCount").textContent = totalQty;
+  document.getElementById("cartCount").dataset.count = totalQty;
+  document.getElementById("cartCheckout").disabled = allItems.length === 0;
+
+  // Price breakdown rows
+  const promoRow = document.getElementById("promoDiscRow");
+  if (promo && subtotal >= promo.min) {
+    promoRow.style.display = "";
+    document.getElementById("promoDiscLabel").textContent = promo.label;
+    document.getElementById("promoDiscAmt").textContent = `-${fmtMoney(promoAmt)}`;
+  } else {
+    promoRow.style.display = "none";
   }
-  body.innerHTML = items.map(it => `
-    <div class="cart-item">
-      <div class="thumb">${it.icon}</div>
-      <div class="meta">
-        <h4>${it.name}</h4>
-        <div class="pr">${fmtMoney(it.price)}</div>
-        <div class="qty">
-          <button data-id="${it.id}" data-d="-1">−</button>
-          <span>${it.qty}</span>
-          <button data-id="${it.id}" data-d="1">+</button>
+  const couponRow = document.getElementById("couponDiscRow");
+  if (appliedCoupon && couponAmt > 0) {
+    couponRow.style.display = "";
+    document.getElementById("couponDiscLabel").textContent = `折扣碼 ${appliedCoupon}`;
+    document.getElementById("couponDiscAmt").textContent = `-${fmtMoney(couponAmt)}`;
+  } else {
+    couponRow.style.display = "none";
+  }
+
+  // Promo bar
+  const bar = document.getElementById("cartPromoBar");
+  const nextPromo = PROMOTIONS.find(p => subtotal < p.min);
+  if (!nextPromo && promo) {
+    bar.innerHTML = `🎉 已享 <b>${promo.label}</b> 最高折扣！`;
+    bar.className = "cart-promo-bar active";
+  } else if (nextPromo && allItems.length > 0) {
+    bar.innerHTML = `🎁 再買 <b>${fmtMoney(nextPromo.min - subtotal)}</b>，享 ${nextPromo.label}`;
+    bar.className = "cart-promo-bar hint";
+  } else {
+    bar.innerHTML = "";
+    bar.className = "cart-promo-bar";
+  }
+
+  // Items
+  if (regularItems.length === 0) {
+    body.innerHTML = `<div class="cart-empty"><div class="ic">🪴</div><div>購物車還是空的</div><div style="font-size:12px;margin-top:6px">逛逛療癒商城吧</div></div>`;
+  } else {
+    body.innerHTML = regularItems.map(it => `
+      <div class="cart-item">
+        <div class="thumb">${it.icon}</div>
+        <div class="meta">
+          <h4>${it.name}</h4>
+          <div class="pr">${fmtMoney(it.price)}</div>
+          <div class="qty">
+            <button data-id="${it.id}" data-d="-1">−</button>
+            <span>${it.qty}</span>
+            <button data-id="${it.id}" data-d="1">+</button>
+          </div>
         </div>
-      </div>
-      <button class="rm" data-rm="${it.id}" aria-label="移除">🗑</button>
-    </div>`).join("");
+        <button class="rm" data-rm="${it.id}" aria-label="移除">🗑</button>
+      </div>`).join("") +
+      (addOnItems.length > 0 ? `<div style="font-size:11px;color:var(--mg-fg-3);padding:8px 4px 0;font-weight:600;letter-spacing:.04em">已加購商品</div>` +
+        addOnItems.map(it => `
+          <div class="cart-item">
+            <div class="thumb">${it.icon}</div>
+            <div class="meta">
+              <h4>${it.name} <span style="font-size:10px;background:var(--mg-green-100);color:var(--mg-green-700);padding:2px 6px;border-radius:9999px;font-weight:700">加購價</span></h4>
+              <div class="pr">${fmtMoney(it.price)}</div>
+            </div>
+            <button class="rm" data-rm="${it.id}" aria-label="移除">🗑</button>
+          </div>`).join("") : "");
+  }
+
+  // Add-ons panel — rendered inside cart-body so it scrolls with items
+  body.innerHTML += renderAddOns(addOnItems);
+}
+
+function renderAddOns(addedIds) {
+  const addedSet = new Set((addedIds || []).map(it => it.id));
+  return `<div class="cart-addons">
+    <div class="cart-addon-title">✨ 療癒加購 <span style="font-weight:400;color:var(--mg-fg-3)">特惠商品</span></div>
+    <div class="addon-list">
+      ${ADD_ON_PRODUCTS.map(p => {
+        const inCart = addedSet.has(p.id);
+        return `<div class="addon-item ${inCart ? "in-cart" : ""}">
+          <img class="addon-img" src="${p.img}" alt="${p.name}" loading="lazy" onerror="this.remove()" />
+          <div class="addon-info">
+            <div class="addon-name">${p.name}</div>
+            <div class="addon-desc">${p.desc}</div>
+            <div class="addon-price">
+              <span class="addon-price-now">加購 $${p.price}</span>
+              <span class="addon-price-orig">$${p.original}</span>
+            </div>
+          </div>
+          <button class="addon-btn ${inCart ? "added" : ""}" data-addon="${p.id}">${inCart ? "✓ 已加購" : "+ 加購"}</button>
+        </div>`;
+      }).join("")}
+    </div>
+  </div>`;
 }
 function openCart() {
   document.getElementById("scrim").classList.add("open");
@@ -481,11 +629,44 @@ document.getElementById("scrim").addEventListener("click", closeCart);
 document.getElementById("cartBody").addEventListener("click", e => {
   const rm = e.target.closest("[data-rm]"); if (rm) return removeFromCart(rm.dataset.rm);
   const q = e.target.closest("[data-d]"); if (q) return changeQty(q.dataset.id, parseInt(q.dataset.d));
+  const addon = e.target.closest("[data-addon]"); if (addon) toggleAddOn(addon.dataset.addon);
 });
 document.getElementById("cartCheckout").addEventListener("click", () => {
   if (cart.size === 0) return;
   openCheckoutForm();
 });
+
+// Coupon
+function applyCoupon() {
+  const input = document.getElementById("couponInput");
+  const msg = document.getElementById("couponMsg");
+  const code = input.value.trim().toUpperCase();
+  if (!code) { msg.innerHTML = "請輸入折扣碼"; msg.className = "coupon-msg error"; return; }
+  if (DISCOUNT_CODES[code]) {
+    appliedCoupon = code;
+    input.disabled = true;
+    document.getElementById("couponApplyBtn").disabled = true;
+    msg.innerHTML = `✓ ${DISCOUNT_CODES[code].label} &nbsp;<button class="coupon-remove" id="couponRemove">移除</button>`;
+    msg.className = "coupon-msg success";
+    document.getElementById("couponRemove").addEventListener("click", () => {
+      appliedCoupon = null;
+      input.value = "";
+      input.disabled = false;
+      document.getElementById("couponApplyBtn").disabled = false;
+      msg.innerHTML = "";
+      msg.className = "coupon-msg";
+      renderCart();
+    });
+    renderCart();
+    toast(`✓ 折扣碼 ${code} 已套用`);
+  } else {
+    msg.innerHTML = "折扣碼無效，請確認後重試";
+    msg.className = "coupon-msg error";
+  }
+}
+document.getElementById("couponApplyBtn").addEventListener("click", applyCoupon);
+document.getElementById("couponInput").addEventListener("keydown", e => { if (e.key === "Enter") applyCoupon(); });
+
 renderCart();
 
 // product add-to-cart click
@@ -593,12 +774,28 @@ function openBookingForm(role, p) {
 // ===== Checkout form =====
 function openCheckoutForm() {
   const items = [...cart.values()];
-  const total = items.reduce((s,it) => s + it.price * it.qty, 0);
-  const summary = items.map(it => `<div style="display:flex;justify-content:space-between;font-size:13px;padding:4px 0;color:var(--mg-fg-2)"><span>${it.icon} ${it.name} ×${it.qty}</span><span class="mg-num" style="font-weight:700;color:var(--mg-green-700)">${fmtMoney(it.price*it.qty)}</span></div>`).join("");
+  const subtotal = calcSubtotal();
+  const promo = getBestPromo(subtotal);
+  const promoAmt = promo ? promo.discount : 0;
+  const couponAmt = getCouponDiscount(subtotal - promoAmt);
+  const total = getFinalTotal();
+  const totalQty = items.reduce((s,i)=>s+i.qty,0);
+
+  const summary = items.map(it => `
+    <div style="display:flex;justify-content:space-between;font-size:13px;padding:4px 0;color:var(--mg-fg-2)">
+      <span>${it.icon} ${it.name} ×${it.qty}${it.id.startsWith("a") ? ' <span style="font-size:10px;color:var(--mg-green-600)">(加購)</span>' : ""}</span>
+      <span class="mg-num" style="font-weight:700;color:var(--mg-green-700)">${fmtMoney(it.price*it.qty)}</span>
+    </div>`).join("");
+
+  let discountRows = `<div style="display:flex;justify-content:space-between;padding:4px 0;font-size:13px;color:var(--mg-fg-3)"><span>商品小計</span><span class="mg-num">${fmtMoney(subtotal)}</span></div>`;
+  if (promo && subtotal >= promo.min) discountRows += `<div style="display:flex;justify-content:space-between;padding:4px 0;font-size:13px;color:var(--mg-green-700);font-weight:600"><span>${promo.label}</span><span class="mg-num">-${fmtMoney(promoAmt)}</span></div>`;
+  if (appliedCoupon && couponAmt > 0) discountRows += `<div style="display:flex;justify-content:space-between;padding:4px 0;font-size:13px;color:var(--mg-green-700);font-weight:600"><span>折扣碼 ${appliedCoupon}</span><span class="mg-num">-${fmtMoney(couponAmt)}</span></div>`;
+
   const body = `
     <div class="summary-box" style="display:block">
       ${summary}
-      <div style="display:flex;justify-content:space-between;margin-top:10px;padding-top:10px;border-top:1px solid var(--mg-green-200);font-family:var(--mg-font-display);"><b>小計</b><b class="mg-num" style="font-size:18px;color:var(--mg-green-700)">${fmtMoney(total)}</b></div>
+      <div style="border-top:1px solid var(--mg-green-200);margin-top:8px;padding-top:8px">${discountRows}</div>
+      <div style="display:flex;justify-content:space-between;margin-top:8px;padding-top:8px;border-top:1px solid var(--mg-green-200);font-family:var(--mg-font-display);"><b>合計</b><b class="mg-num" style="font-size:20px;color:var(--mg-green-700)">${fmtMoney(total)}</b></div>
     </div>
     <form id="checkoutForm">
       <div class="field row2"><div><label>姓名 <span class="req">*</span></label><input required name="name" /></div><div><label>聯絡電話 <span class="req">*</span></label><input required name="phone" /></div></div>
@@ -607,14 +804,14 @@ function openCheckoutForm() {
       <div class="field"><label>付款方式</label><select name="pay"><option>💳 信用卡</option><option>🏧 ATM 轉帳</option><option>📦 貨到付款</option></select></div>
       <div style="display:flex;gap:10px;justify-content:flex-end;margin-top:8px"><button type="button" class="btn-secondary" id="cancelCheck">取消</button><button type="submit" class="btn-primary">確認結帳 →</button></div>
     </form>`;
-  openModal("結帳", `共 ${items.reduce((s,i)=>s+i.qty,0)} 件商品`, body);
+  openModal("結帳", `共 ${totalQty} 件商品`, body);
   document.getElementById("cancelCheck").addEventListener("click", closeModal);
   document.getElementById("checkoutForm").addEventListener("submit", e => {
     e.preventDefault();
     const data = Object.fromEntries(new FormData(e.target));
-    document.getElementById("modalBody").innerHTML = `<div class="success-state"><div class="ring">✓</div><h3>下單成功！</h3><p>${data.name} 您好，訂單共 ${fmtMoney(total)}。<br>商品將於 3-5 個工作天內寄達。</p><div style="margin-top:18px"><button class="btn-primary" id="okClose">了解</button></div></div>`;
+    document.getElementById("modalBody").innerHTML = `<div class="success-state"><div class="ring">✓</div><h3>下單成功！</h3><p>${data.name} 您好，訂單合計 ${fmtMoney(total)}。<br>商品將於 3-5 個工作天內寄達。</p><div style="margin-top:18px"><button class="btn-primary" id="okClose">了解</button></div></div>`;
     document.getElementById("modalTitle").textContent = "✓ 訂單完成";
-    cart.clear(); renderCart();
+    cart.clear(); appliedCoupon = null; renderCart();
     document.getElementById("okClose").addEventListener("click", closeCart);
     toast("✓ 下單成功 · 感謝購買");
   });
