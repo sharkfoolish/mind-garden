@@ -102,6 +102,8 @@
     <div class="intro-point"><div class="ico">💚</div><h4>建立支持感連結</h4><p>透過植物的成長與凋零，重新理解失去與重生，並在團體中找到溫暖共鳴。</p></div>
   </div>
 
+  <div class="coupon-strip" id="coursesCouponStrip"></div>
+
   <div class="courses-toolbar">
     <div class="courses-count" id="course-count">共 5 堂課程</div>
     <div class="sort-control">
@@ -186,8 +188,9 @@
     <h1>把療癒帶回家</h1>
     <p>精選植栽、花藝、文具、香氛與園藝工具，每一件都是日常療癒的好夥伴。</p>
   </div>
-  <div class="shop-tabs" id="shopTabs"></div>
+  <div class="coupon-strip" id="shopCouponStrip"></div>
   <div class="shop-promo-strip" id="shopPromoStrip"></div>
+  <div class="shop-tabs" id="shopTabs"></div>
   <div class="shop-grid stagger" id="shopGrid"></div>
 </section>
 
@@ -241,6 +244,24 @@
 
 <!-- Toast -->
 <div class="toast" id="toast"></div>
+
+<!-- Coupon Notification -->
+<div class="coupon-notif" id="couponNotif">
+  <div class="coupon-notif-top">
+    <span class="coupon-notif-icon">🎟️</span>
+    <div class="coupon-notif-texts">
+      <div class="coupon-notif-title">優惠券已領取！</div>
+      <div class="coupon-notif-sub">折扣碼已複製到剪貼簿</div>
+    </div>
+    <button class="coupon-notif-x" id="couponNotifClose">✕</button>
+  </div>
+  <div class="coupon-notif-body">
+    <div class="coupon-notif-code" id="couponNotifCode"></div>
+    <div class="coupon-notif-hint">開啟購物車貼上折扣碼即可使用</div>
+    <button class="coupon-notif-cart" id="couponNotifCartBtn">🛒 前往購物車使用</button>
+  </div>
+  <div class="coupon-notif-progress"><div class="coupon-notif-bar" id="couponNotifBar" style="width:100%"></div></div>
+</div>
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="site-data.js"></script>
 <script>
@@ -432,14 +453,42 @@ document.getElementById("shopTabs").addEventListener("click", e => {
   if (t) { activeCat = t.dataset.cat; renderShopTabs(); renderShop(); }
 });
 
-function renderShopPromoStrip() {
+function renderShopPromoStrip(subtotal = 0) {
   const el = document.getElementById("shopPromoStrip");
   if (!el) return;
+  const maxMin = PROMOTIONS[PROMOTIONS.length - 1].min;
+  const fillPct = Math.min(100, (subtotal / maxMin) * 100);
+  const promo = getBestPromo(subtotal);
+  const nextPromo = PROMOTIONS.find(p => subtotal < p.min);
+  let hintHTML;
+  if (!nextPromo && promo) {
+    hintHTML = `🎉 已達最高折扣 <b>${promo.label}</b>`;
+  } else if (nextPromo && subtotal > 0) {
+    hintHTML = `再買 <b>${fmtMoney(nextPromo.min - subtotal)}</b> 享 ${nextPromo.label}`;
+  } else {
+    hintHTML = `滿 <b>${fmtMoney(PROMOTIONS[0].min)}</b> 即享折扣`;
+  }
+  const dotsHTML = PROMOTIONS.map(p => {
+    const pos = (p.min / maxMin) * 100;
+    return `<div class="spi-dot${subtotal >= p.min ? ' active' : ''}" style="left:${pos}%"></div>`;
+  }).join('');
+  const ticksHTML = PROMOTIONS.map(p => {
+    const pos = (p.min / maxMin) * 100;
+    return `<div class="spi-tick${subtotal >= p.min ? ' active' : ''}" style="left:${pos}%">
+      <span class="spi-tick-amt">${fmtMoney(p.min)}</span>
+      <span class="spi-tick-disc">-${fmtMoney(p.discount)}</span>
+    </div>`;
+  }).join('');
   el.innerHTML = `<div class="shop-promo-inner">
-    <span class="promo-label">🎁 購物優惠</span>
-    <div class="shop-promo-tiers">
-      ${PROMOTIONS.map((p, i) => `<span class="promo-tier${i === PROMOTIONS.length-1 ? " best" : ""}">${p.label}</span>`).join("")}
+    <div class="spi-head">
+      <span class="spi-label">🎁 購物優惠</span>
+      <span class="spi-hint">${hintHTML}</span>
     </div>
+    <div class="spi-track">
+      <div class="spi-fill" style="width:${fillPct}%"></div>
+      ${dotsHTML}
+    </div>
+    <div class="spi-ticks">${ticksHTML}</div>
   </div>`;
 }
 renderShopTabs(); renderShop(); renderShopPromoStrip();
@@ -560,6 +609,8 @@ function renderCart() {
     bar.innerHTML = "";
     bar.className = "cart-promo-bar";
   }
+
+  renderShopPromoStrip(subtotal);
 
   // Items
   if (regularItems.length === 0) {
@@ -866,6 +917,81 @@ document.getElementById("aiSubmit").addEventListener("click", async () => {
   } finally {
     btn.disabled = false; btn.textContent = "🔮 為我抽牌";
   }
+});
+
+// ============== COUPON STRIP ==============
+const COUPON_META = {
+  "MINDGARDEN10": { title: "會員專屬優惠", desc: "課程 · 商城全品項適用" },
+  "GREEN200":     { title: "新客首購折扣", desc: "首次購物享 $200 折抵" },
+  "HEAL2026":     { title: "療癒新春活動", desc: "全館限時優惠，數量有限" },
+};
+
+function couponBadgeText(code) {
+  const info = DISCOUNT_CODES[code];
+  if (!info) return "";
+  return info.type === "percent" ? `${100 - info.value}折` : `-$${info.value}`;
+}
+
+function renderCouponStrip(containerId) {
+  const el = document.getElementById(containerId);
+  if (!el) return;
+  const cards = Object.entries(DISCOUNT_CODES).map(([code, info]) => {
+    const meta = COUPON_META[code] || { title: info.label, desc: "" };
+    return `<div class="coupon-card">
+      <div class="coupon-badge">${couponBadgeText(code)}</div>
+      <div class="coupon-sep"></div>
+      <div class="coupon-info">
+        <div class="coupon-info-title">${meta.title}</div>
+        <div class="coupon-info-desc">${meta.desc}</div>
+        <div class="coupon-info-label">${info.label}</div>
+        <div class="coupon-code-box">${code}</div>
+        <button class="coupon-claim-btn" data-code="${code}">🎟️ 領取優惠券</button>
+      </div>
+    </div>`;
+  }).join("");
+  el.innerHTML = `
+    <div class="coupon-strip-head">
+      <span class="strip-eyebrow">限時活動</span>
+      <h3>專屬優惠券 · 點擊領取複製</h3>
+    </div>
+    <div class="coupon-cards">${cards}</div>`;
+}
+renderCouponStrip("shopCouponStrip");
+renderCouponStrip("coursesCouponStrip");
+
+// Coupon notification (bottom-right)
+let couponNotifTO = null;
+function claimCoupon(code) {
+  navigator.clipboard.writeText(code).catch(() => {});
+  const notif = document.getElementById("couponNotif");
+  document.getElementById("couponNotifCode").textContent = code;
+  notif.classList.add("show");
+  const bar = document.getElementById("couponNotifBar");
+  bar.style.transition = "none"; bar.style.width = "100%";
+  requestAnimationFrame(() => requestAnimationFrame(() => {
+    bar.style.transition = "width 4s linear"; bar.style.width = "0";
+  }));
+  if (couponNotifTO) clearTimeout(couponNotifTO);
+  couponNotifTO = setTimeout(() => notif.classList.remove("show"), 4000);
+}
+
+document.getElementById("couponNotifClose").addEventListener("click", () => {
+  document.getElementById("couponNotif").classList.remove("show");
+  if (couponNotifTO) clearTimeout(couponNotifTO);
+});
+
+document.getElementById("couponNotifCartBtn").addEventListener("click", () => {
+  document.getElementById("couponNotif").classList.remove("show");
+  if (couponNotifTO) clearTimeout(couponNotifTO);
+  openCart();
+  const code = document.getElementById("couponNotifCode").textContent;
+  const input = document.getElementById("couponInput");
+  if (code && input && !input.disabled) { input.value = code; }
+});
+
+document.body.addEventListener("click", e => {
+  const btn = e.target.closest(".coupon-claim-btn");
+  if (btn && btn.dataset.code) claimCoupon(btn.dataset.code);
 });
 
 // ============== MOBILE MENU ==============
